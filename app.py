@@ -9,11 +9,11 @@ from model1 import *
 app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
 
-@app.route("/", methods = ["POST","GET"])
+@app.route("/")
 def Home():
     return jsonify("Hello World")
 
-@app.route("/predict", methods = ["GET"])
+@app.route("/predict", methods = ["GET","POST"])
 def predict():
     x_future_date = pd.date_range(start ="2022-08-01", end = "2023-01-31")
     x_future_dates = pd.DataFrame()
